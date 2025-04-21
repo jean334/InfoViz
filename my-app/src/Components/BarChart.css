@@ -1,0 +1,18 @@
+.controller-container2 {
+    width: 50%;
+    display: flex;
+    align-items: center; 
+    gap: 20px;
+  }
+  
+.slider-container2, .toggle-container2 {
+    flex: 1; 
+}
+
+.slider-container2{
+    margin-left: 20px;
+}
+
+.toggle-container2{
+    margin-top: -25px;
+}

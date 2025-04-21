@@ -1,6 +1,6 @@
 .slider-container {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   margin-top: 10px;
   margin-bottom:10px;
 }
@@ -21,4 +21,12 @@
     display: flex;
     justify-content: left;
     margin-left: 10px;
+}
+
+#graph-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 100%;
 }

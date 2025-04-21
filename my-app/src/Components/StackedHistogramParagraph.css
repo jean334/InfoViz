@@ -1,0 +1,38 @@
+.stacked-par {
+    width : 100%;
+    padding: 1.5rem 2rem;
+    background-color: var(--background);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.358);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+  
+  .stacked-par h2 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    color: var(--text-light);
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.3rem;
+  }
+  
+  .stacked-par p {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  
+  .stacked-par ul {
+    margin-top: 0.8rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+  
+  .stacked-par li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .stacked-par strong {
+    color: var(--text-light); 
+    font-weight: 1200;
+  }

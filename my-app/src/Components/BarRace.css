@@ -1,0 +1,15 @@
+.replay-button {
+    position: absolute;
+    top: 20%;
+    left: 2.5%;
+    background: var(--primary);
+    color: var(--text-light);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.bar-race{
+    padding: 3px;
+}

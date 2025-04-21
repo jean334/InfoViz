@@ -1,0 +1,12 @@
+.top-controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    align-items: center;
+  }
+  
+  .slider-container2 {
+    flex: 1;
+    min-width: 200px;
+  }

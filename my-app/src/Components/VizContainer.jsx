@@ -3,11 +3,11 @@ import "./VizContainer.css";
 import InfoPopup from "./InfoPopup";
 import SidePanel from "./SidePanel";
 
-function VizContainer({ viz:Viz, title, groups, text }) {
+function VizContainer({ viz:Viz, title, groups, text, hasSidePanel=true }) {
     const [isPanelOpen, setIsPanelOpen] = useState(true);
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-    const [selectedGroups, setSelectedGroups] = useState(new Set(["People", "Citizenship", "Art"]));
+    const [selectedGroups, setSelectedGroups] = useState(new Set(['Indie', 'Action']));
 
     function onToggleGroup(group) {
         setSelectedGroups((prev) => {
@@ -20,12 +20,14 @@ function VizContainer({ viz:Viz, title, groups, text }) {
     return (
         <div className="card">
             <div className="card-title">{title}</div>
-            <div className={`side-panel ${isPanelOpen ? "open" : ""}`}>
-                <button className="toggle-panel" onClick={() => setIsPanelOpen(!isPanelOpen)}>
-                    {isPanelOpen ? "←" : "→"}
-                </button>
-                <SidePanel selectedGroups={selectedGroups} onToggleGroup={onToggleGroup} groups={groups} />
-            </div>
+            {hasSidePanel && (
+                <div className={`side-panel ${isPanelOpen ? "open" : ""}`}>
+                    <button className="toggle-panel" onClick={() => setIsPanelOpen(!isPanelOpen)}>
+                        {isPanelOpen ? "←" : "→"}
+                    </button>
+                    <SidePanel selectedGroups={selectedGroups} onToggleGroup={onToggleGroup} groups={groups} />
+                </div>
+            )}
             <div className="card-content">
                 <Viz selectedGroups={selectedGroups} />
             </div>

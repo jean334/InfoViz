@@ -1,0 +1,62 @@
+.range2 {
+    width: 100%;
+    max-width: 300px;
+    width: 300px;
+    height: 20px;
+  }
+  
+  .range-slider2 {
+    position: relative;
+    height: 8px;
+    background-color: #E8EDDF;
+    border-radius: 6px;
+  }
+  
+  .range-selected2 {
+    position: absolute;
+    height: 100%;
+    background-color: #333;
+    border-radius: 6px;
+    z-index: 1;
+  }
+  
+  .range-input2 {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .range-input2 input[type="range"] {
+    position: absolute;
+    width: 100%;
+    height: 40px; 
+    top: -23px;
+    background: none;
+    pointer-events: all;
+  }
+  
+  .range-input2 input[type="range"]::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .range-input2 input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #424242;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .range-price2 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: 600;
+  }

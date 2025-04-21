@@ -185,8 +185,6 @@ function HiveVisualization({ data, selectedGroups }) {
         .ease(d3.easeCubic)
         .attr("stroke-dashoffset", 0); // Fait apparaître progressivement l'axe
 
-
-      console.log("uniqueGroups : ", uniqueGroups);
       g
       .selectAll(".axis-label")
       .data(groups)
