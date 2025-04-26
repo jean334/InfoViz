@@ -4,9 +4,9 @@ import "./StackedHistogramParagraph.css";
 function HairballParagraph() {
   return (
     <div className="stacked-par">
-      <h2>Network Graph</h2>
+      <h2>Hairball of steam games released during the selected period</h2>
       <p>
-        This interactive network graph offers an engaging way to explore Steam's game catalogue.
+        This interactive Hairball offers an engaging way to explore Steam's game catalogue.
         Each <strong>node</strong> represents a game, and the <strong>color</strong> indicates its genre.
         Links are drawn between games developed by the <strong>same studio</strong>, helping to highlight clusters of productions.
       </p>
@@ -22,7 +22,7 @@ function HairballParagraph() {
       <ul>
         <li>A <strong>double slider</strong> allows selecting a date range to filter the games displayed.</li>
         <li>A <strong>side panel</strong> filters which genres to display.</li>
-        <li>Two sliders let you control the <strong>intra-link</strong> and <strong>inter-link</strong> density to avoid visual clutter or performance lag.</li>
+        <li>A slider let you control the <strong>link density</strong> to avoid visual clutter or performance lag.</li>
         <li>The visualisation can be <strong>zoomed and panned</strong> for better exploration.</li>
         <li>Each node is <strong>hoverable</strong> to display additional details (game title, genre, release date, studio, etc.).</li>
         <li>Nodes can be <strong>grabbed and moved</strong> manually for custom layouting.</li>

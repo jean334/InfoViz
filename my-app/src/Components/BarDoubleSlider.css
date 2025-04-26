@@ -1,62 +1,71 @@
-.range2 {
-    width: 100%;
-    max-width: 300px;
-    width: 300px;
-    height: 20px;
-  }
-  
-  .range-slider2 {
-    position: relative;
-    height: 8px;
-    background-color: #E8EDDF;
-    border-radius: 6px;
-  }
-  
-  .range-selected2 {
-    position: absolute;
-    height: 100%;
-    background-color: #333;
-    border-radius: 6px;
-    z-index: 1;
-  }
-  
-  .range-input2 {
-    position: relative;
-    z-index: 2;
-  }
-  
-  .range-input2 input[type="range"] {
-    position: absolute;
-    width: 100%;
-    height: 40px; 
-    top: -23px;
-    background: none;
-    pointer-events: all;
-  }
-  
-  .range-input2 input[type="range"]::-webkit-slider-thumb {
-    width: 20px;
-    height: 20px;
-    background-color: #333;
-    border-radius: 50%;
-    cursor: pointer;
-    position: relative;
-    z-index: 3;
-  }
-  
-  .range-input2 input[type="range"]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background-color: #424242;
-    border-radius: 50%;
-    cursor: pointer;
-    position: relative;
-    z-index: 3;
-  }
-  
-  .range-price2 {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1rem;
-    font-weight: 600;
-  }
+.range-slider-bar {
+  height: 5px;
+  position: relative;
+  background-color: #E8EDDF;
+  border-radius: 2px;
+}
+
+.range-selected-bar {
+  height: 100%;
+  left: 30%;
+  right: 30%;
+  position: absolute;
+  border-radius: 5px;
+  background-color: #424242;
+}
+
+.range-input-bar {
+  position: relative;
+}
+
+.range-input-bar input {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: -7px;
+  background: none;
+  pointer-events: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.range-input-bar input::-webkit-slider-thumb {
+  height: 15px;
+  width: 15px;
+  margin-top: 2px;
+  border-radius: 50%;
+  background-color: #333;
+  pointer-events: auto;
+  -webkit-appearance: none;
+}
+
+.range-input-bar input::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #333;
+  pointer-events: auto;
+  -moz-appearance: none;
+}
+
+.range-price-bar {
+  margin: 30px 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.range-price-bar label {
+  margin-right: 5px;
+}
+
+.range-price-bar input {
+  width: 40px;
+  padding: 5px;
+}
+
+.range-price-bar input:first-of-type {
+  margin-right: 15px;
+}

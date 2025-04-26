@@ -117,8 +117,8 @@ function GraphVisualization({ data, selectedGroups }) {
       .attr("viewBox", [0, 0, width+marginLeft+marginRight, height+marginTop+marginBottom])
       .style("max-width", "100%")
       .style("height", "auto")
-      .style("border", "1px solid #333533")
-      .style("border-radius", "8px");
+      //.style("border", "1px solid #333533")
+      //.style("border-radius", "8px");
 
       createGradients(svg); 
     const g = svg.append("g");

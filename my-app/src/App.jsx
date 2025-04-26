@@ -79,6 +79,13 @@ function Home() {
     </div>
 
     <div className="text-container">
+      <SteamUsersLineChartParagraph/>
+    </div>
+    <div className="center-viz">
+      <VizContainer viz={LineChart} title={"Line Chart representing the number of steam user over time"} groups={noGroups} text={lineChartText} hasSidePanel={false}/>
+    </div>
+    
+    <div className="text-container">
       <HairballParagraph/>
     </div>
     <div className="upper-viz">
@@ -117,13 +124,6 @@ function Home() {
       </div>
     </div>
     */}
-    <div className="text-container">
-      <SteamUsersLineChartParagraph/>
-    </div>
-    <div className="center-viz">
-      <VizContainer viz={LineChart} title={"Line Chart representing the number of steam user over time"} groups={noGroups} text={lineChartText} hasSidePanel={false}/>
-    </div>
-
 
     <div className="text-container">
       <EngineHistogramParagraph/>

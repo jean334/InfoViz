@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import data from "../assets/HairballDataset.json";
 import "./Hairball.css";
 import HairballDoubleSlider from "./HairballDoubleSlider";
+import Slider from "./Slider";
 
 function Hairball({selectedGroups}) {
   if (!data) return <p>Loading viz...</p>;
@@ -21,8 +22,9 @@ function indexToDate(index) {
 
 
 function GraphVisualization({ data, selectedGroups }) {
-  const [nbIntraLink, setNbIntraLink] = useState(0.02); 
-  const [nbInterLink, setNbInterLink] = useState(0.2);
+  //const [nbIntraLink, setNbIntraLink] = useState(0.02); 
+  //const [nbInterLink, setNbInterLink] = useState(0.2);
+  const [nbLink, setNbLink] = useState(0.2);
   //const [dateRange, setDateRange] = useState(["2024-06-30", "2025-04-14"]);
   const [dateRange, setDateRange] = useState([300, 334]);
   const categoryColors = {
@@ -122,17 +124,18 @@ function GraphVisualization({ data, selectedGroups }) {
 
     let filteredLinks = links;
 
-
+    /*
     filteredLinks = filteredLinks.filter(link => {
         //const differentCluster = link.source_group[0] !== link.target_group[0];
         //return differentCluster || Math.random() < nbIntraLink; 
         return Math.random() < nbIntraLink; 
     });
+    */
 
     filteredLinks = filteredLinks.filter(link => {
         //const differentCluster = link.source_group[0] == link.target_group[0];
         //return differentCluster || Math.random() < nbInterLink; 
-        return Math.random() < nbInterLink; 
+        return Math.random() < nbLink; 
     });
     
     
@@ -142,8 +145,8 @@ function GraphVisualization({ data, selectedGroups }) {
     });
     
     const nodeIds = new Set(filteredNodes.map(node => node.id));
-
-    filteredLinks = links.filter(link => 
+    
+    filteredLinks = filteredLinks.filter(link => 
         nodeIds.has(link.source) && nodeIds.has(link.target)
     );
 
@@ -211,7 +214,7 @@ function GraphVisualization({ data, selectedGroups }) {
       .selectAll("circle")
       .data(filteredNodes)
       .join("circle")
-      .attr("r", 20)//d => 20)//computeRadius(d.estimated_owners))
+      .attr("r", d => computeRadius(d.estimated_owners))//d => 20)//computeRadius(d.estimated_owners))
       .attr("fill", d => getGradientUrl(d.genres[0]))
       //.attr("fill", d => color(d.genres[0]))
       
@@ -224,7 +227,7 @@ function GraphVisualization({ data, selectedGroups }) {
         .on("end", dragended));
 
       /*
-      const legend = svg.append("g")
+      const legend = svg.append("g") 
       .attr("transform", `translate(${width / 2 - 100}, ${height / 2 - 600})`);
       
       const uniqueGroups = Array.from(new Set(filteredNodes.flatMap(node => node.genres[0])));
@@ -316,7 +319,10 @@ function GraphVisualization({ data, selectedGroups }) {
 
     
     node.on("mouseover", function (event, d) {
-        d3.select(this);//.transition().duration(200).attr("r", d.radius * 1.5); // Augmente la taille du nœud
+        d3.select(this)
+        .transition().
+        duration(200)
+        .attr("r", d => computeRadius(d.estimated_owners) * 1.5); // Augmente la taille du nœud
         tooltip.style("display", "block")
             .style("left", `${event.pageX + 10}px`)
             .style("top", `${event.pageY - 10}px`)
@@ -329,7 +335,7 @@ function GraphVisualization({ data, selectedGroups }) {
         d3.select(this)
         .transition()
         .duration(200)
-        .attr("r", 5);//d => d.radius); 
+        .attr("r", d => computeRadius(d.estimated_owners));//d => d.radius); 
         tooltip.style("display", "none");
     });
       
@@ -366,23 +372,18 @@ function GraphVisualization({ data, selectedGroups }) {
 
 
     return () => simulation.stop(); // Nettoyage du simulation
-  }, [data, selectedGroups, nbInterLink, nbIntraLink, dateRange]);
+  }, [data, selectedGroups, nbLink, dateRange]);
 
   return (
     <div>
       {/*<div className="top-controls-hairball">
         <div className="slider-container-hairball">*/}
           <HairballDoubleSlider props={{ dateRange: dateRange, setDateRange: setDateRange }} />
-        {/*</div>
-      </div>*/}
-    <div id="graph-container">
-    {/*
       <div className="slider-container">
-          <Slider nbLink={nbIntraLink} setNbLink={setNbIntraLink} className="slider-intra"  htmlFor="intra_link" label="intra link"/>
-          <Slider nbLink={nbInterLink} setNbLink={setNbInterLink} className="slider-inter"  htmlFor="inter_link" label="inter link"/>
-
+          <Slider nbLink={nbLink} setNbLink={setNbLink} className="slider-intra"  htmlFor="intra_link" label="link density"/>
       </div>
-      */}
+    <div id="graph-container">
+      
     </div>
   </div>)
   

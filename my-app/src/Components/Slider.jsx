@@ -1,4 +1,4 @@
-function Slider({nbLink, setNbLink, className, htmlFor, label}) {
+function Slider({ nbLink, setNbLink, className, htmlFor, label }) {
   return (
     <div className={className}>
       <input
@@ -6,11 +6,14 @@ function Slider({nbLink, setNbLink, className, htmlFor, label}) {
         id={htmlFor}
         name={label}
         min="0"
-        max="0.5"
+        max="1"
         value={nbLink}
         onChange={(e) => setNbLink(Number(e.target.value))}
-        step="0.02" />
-      <label htmlFor={htmlFor}>{label}: {nbLink*100}%</label>
+        step="0.02"
+      />
+      <label htmlFor={htmlFor}>
+        {label}: {Math.round(nbLink * 100)}%
+      </label>
     </div>
   );
 }
